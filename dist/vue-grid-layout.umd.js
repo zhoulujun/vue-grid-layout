@@ -1,4 +1,4 @@
-/*! vue-grid-layout - 2.3.13-beta | (c) 2015, 2021  Gustavo Santos (JBay Solutions) <gustavo.santos@jbaysolutions.com> (http://www.jbaysolutions.com) | https://github.com/jbaysolutions/vue-grid-layout */
+/*! vue-grid-layout - 2.3.13-beta.2 | (c) 2015, 2021  Gustavo Santos (JBay Solutions) <gustavo.santos@jbaysolutions.com> (http://www.jbaysolutions.com) | https://github.com/jbaysolutions/vue-grid-layout */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("vue"));
@@ -648,9 +648,7 @@ module.exports = function (it, S) {
 /* unused harmony export setDocumentDir */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addWindowEventListener; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return removeWindowEventListener; });
-var currentDir
-/*: "ltr" | "rtl" | "auto"*/
-= "auto"; // let currentDir = "auto";
+var currentDir = "auto"; // let currentDir = "auto";
 
 function hasDocument() {
   return typeof document !== "undefined";
@@ -668,9 +666,7 @@ function getDocumentDir() {
   var direction = typeof document.dir !== "undefined" ? document.dir : document.getElementsByTagName("html")[0].getAttribute("dir");
   return direction;
 }
-function setDocumentDir(dir
-/*: "ltr" | "rtl" | "auto"*/
-) {
+function setDocumentDir(dir) {
   // export function setDocumentDir(dir){
   if (!hasDocument) {
     currentDir = dir;
@@ -680,11 +676,7 @@ function setDocumentDir(dir
   var html = document.getElementsByTagName("html")[0];
   html.setAttribute("dir", dir);
 }
-function addWindowEventListener(event
-/*:string*/
-, callback
-/*: () => mixed*/
-) {
+function addWindowEventListener(event, callback) {
   if (!hasWindow) {
     callback();
     return;
@@ -692,11 +684,7 @@ function addWindowEventListener(event
 
   window.addEventListener(event, callback);
 }
-function removeWindowEventListener(event
-/*:string*/
-, callback
-/*: () => mixed*/
-) {
+function removeWindowEventListener(event, callback) {
   if (!hasWindow) {
     return;
   }
@@ -1341,12 +1329,12 @@ module.exports = __webpack_require__("8e60") ? function (object, key, value) {
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"f898db28-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/GridLayout.vue?vue&type=template&id=db3b5a1c&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1504b9e0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/GridLayout.vue?vue&type=template&id=1054d534&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"item",staticClass:"vue-grid-layout",style:(_vm.mergedStyle)},[_vm._t("default"),_c('grid-item',{directives:[{name:"show",rawName:"v-show",value:(_vm.isDragging),expression:"isDragging"}],staticClass:"vue-grid-placeholder",attrs:{"x":_vm.placeholder.x,"y":_vm.placeholder.y,"w":_vm.placeholder.w,"h":_vm.placeholder.h,"i":_vm.placeholder.i}})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/GridLayout.vue?vue&type=template&id=db3b5a1c&
+// CONCATENATED MODULE: ./src/components/GridLayout.vue?vue&type=template&id=1054d534&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
@@ -3258,30 +3246,15 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 // @flow
 
-
-/*:: import type {Layout} from './utils';*/
-
-/*:: export type ResponsiveLayout = {lg?: Layout, md?: Layout, sm?: Layout, xs?: Layout, xxs?: Layout};*/
-
-/*:: type Breakpoint = string;*/
-
 /**
  * Given a width, find the highest breakpoint that matches is valid for it (width > breakpoint).
  *
- * @param  {Object} breakpoints Breakpoints object (e.g. {lg: 1200, md: 960, ...})
+ * @param  {Object} breakpoints Breakpoints object (e.g. {lg, md, ...})
  * @param  {Number} width Screen width.
  * @return {String}       Highest breakpoint that is less than width.
  */
 
-/*:: type Breakpoints = {lg?: number, md?: number, sm?: number, xs?: number, xxs?: number};*/
-
-function getBreakpointFromWidth(breakpoints
-/*: Breakpoints*/
-, width
-/*: number*/
-)
-/*: Breakpoint*/
-{
+function getBreakpointFromWidth(breakpoints, width) {
   var sorted = sortBreakpoints(breakpoints);
   var matching = sorted[0];
 
@@ -3299,11 +3272,7 @@ function getBreakpointFromWidth(breakpoints
  * @return {Number}            Number of cols.
  */
 
-function getColsFromBreakpoint(breakpoint
-/*: Breakpoint*/
-, cols
-/*: Breakpoints*/
-)
+function getColsFromBreakpoint(breakpoint, cols)
 /*: number*/
 {
   if (!cols[breakpoint]) {
@@ -3328,23 +3297,7 @@ function getColsFromBreakpoint(breakpoint
  * @return {Array}             New layout.
  */
 
-function findOrGenerateResponsiveLayout(orgLayout
-/*: Layout*/
-, layouts
-/*: ResponsiveLayout*/
-, breakpoints
-/*: Breakpoints*/
-, breakpoint
-/*: Breakpoint*/
-, lastBreakpoint
-/*: Breakpoint*/
-, cols
-/*: number*/
-, verticalCompact
-/*: boolean*/
-)
-/*: Layout*/
-{
+function findOrGenerateResponsiveLayout(orgLayout, layouts, breakpoints, breakpoint, lastBreakpoint, cols, verticalCompact) {
   // If it already exists, just return it.
   if (layouts[breakpoint]) return Object(_utils__WEBPACK_IMPORTED_MODULE_4__[/* cloneLayout */ "b"])(layouts[breakpoint]); // Find or generate the next layout
 
@@ -3367,21 +3320,7 @@ function findOrGenerateResponsiveLayout(orgLayout
     cols: cols
   }), verticalCompact);
 }
-function generateResponsiveLayout(layout
-/*: Layout*/
-, breakpoints
-/*: Breakpoints*/
-, breakpoint
-/*: Breakpoint*/
-, lastBreakpoint
-/*: Breakpoint*/
-, cols
-/*: number*/
-, verticalCompact
-/*: boolean*/
-)
-/*: Layout*/
-{
+function generateResponsiveLayout(layout, breakpoints, breakpoint, lastBreakpoint, cols, verticalCompact) {
   // If it already exists, just return it.
 
   /*if (layouts[breakpoint]) return cloneLayout(layouts[breakpoint]);
@@ -3411,14 +3350,8 @@ function generateResponsiveLayout(layout
  * @return {Array}              Sorted breakpoints.
  */
 
-function sortBreakpoints(breakpoints
-/*: Breakpoints*/
-)
-/*: Array<Breakpoint>*/
-{
-  var keys
-  /*: Array<string>*/
-  = Object.keys(breakpoints);
+function sortBreakpoints(breakpoints) {
+  var keys = Object.keys(breakpoints);
   return keys.sort(function (a, b) {
     return breakpoints[a] - breakpoints[b];
   });
@@ -3571,29 +3504,25 @@ module.exports = !__webpack_require__("79e5")(function () {
 
 
 // @flow
-
-/*:: export type LayoutItemRequired = {w: number, h: number, x: number, y: number, i: string};*/
-
-/*:: export type LayoutItem = LayoutItemRequired &
-                         {minW?: number, minH?: number, maxW?: number, maxH?: number,
-                          moved?: boolean, static?: boolean,
-                          isDraggable?: ?boolean, isResizable?: ?boolean};*/
-
-// export type Position = {left: number, top: number, width: number, height: number};
+// export type LayoutItemRequired = {w, h, x, y, i};
+// export type LayoutItem = LayoutItemRequired &
+//                          {minW, minH, maxW, maxH,
+//                           moved, static,
+//                           isDraggable, isResizable};
+// export type Layout = Array<LayoutItem>;
+// export type Position = {left, top, width, height};
 
 /*
 export type DragCallbackData = {
-  node: HTMLElement,
-  x: number, y: number,
-  deltaX: number, deltaY: number,
-  lastX: number, lastY: number
+  node,
+  x, y,
+  deltaX, deltaY,
+  lastX, lastY: number
 };
 */
-// export type DragEvent = {e: Event} & DragCallbackData;
-
-/*:: export type Layout = Array<LayoutItem>;*/
-
-// export type ResizeEvent = {e: Event, node: HTMLElement, size: Size};
+// export type DragEvent = {e} & DragCallbackData;
+// export type Size = {width, height};
+// export type ResizeEvent = {e, node, size};
 // const isProduction = process.env.NODE_ENV === 'production';
 
 /**
@@ -3602,14 +3531,7 @@ export type DragCallbackData = {
  * @param  {Array} layout Layout array.
  * @return {Number}       Bottom coordinate.
  */
-
-/*:: export type Size = {width: number, height: number};*/
-
-function bottom(layout
-/*: Layout*/
-)
-/*: number*/
-{
+function bottom(layout) {
   var max = 0,
       bottomY;
 
@@ -3620,11 +3542,7 @@ function bottom(layout
 
   return max;
 }
-function cloneLayout(layout
-/*: Layout*/
-)
-/*: Layout*/
-{
+function cloneLayout(layout) {
   var newLayout = Array(layout.length);
 
   for (var i = 0, len = layout.length; i < len; i++) {
@@ -3634,11 +3552,7 @@ function cloneLayout(layout
   return newLayout;
 } // Fast path to cloning, since this is monomorphic
 
-function cloneLayoutItem(layoutItem
-/*: LayoutItem*/
-)
-/*: LayoutItem*/
-{
+function cloneLayoutItem(layoutItem) {
   /*return {
     w: layoutItem.w, h: layoutItem.h, x: layoutItem.x, y: layoutItem.y, i: layoutItem.i,
     minW: layoutItem.minW, maxW: layoutItem.maxW, minH: layoutItem.minH, maxH: layoutItem.maxH,
@@ -3654,13 +3568,7 @@ function cloneLayoutItem(layoutItem
  * @return {Boolean}   True if colliding.
  */
 
-function collides(l1
-/*: LayoutItem*/
-, l2
-/*: LayoutItem*/
-)
-/*: boolean*/
-{
+function collides(l1, l2) {
   if (l1 === l2) return false; // same element
 
   if (l1.x + l1.w <= l2.x) return false; // l1 is left of l2
@@ -3683,13 +3591,7 @@ function collides(l1
  * @return {Array}       Compacted Layout.
  */
 
-function compact(layout
-/*: Layout*/
-, verticalCompact
-/*: Boolean*/
-)
-/*: Layout*/
-{
+function compact(layout, verticalCompact) {
   // Statics go in the compareWith array right away so items flow around them.
   var compareWith = getStatics(layout); // We go through the items by row and column.
 
@@ -3719,15 +3621,7 @@ function compact(layout
  * Compact an item in the layout.
  */
 
-function compactItem(compareWith
-/*: Layout*/
-, l
-/*: LayoutItem*/
-, verticalCompact
-/*: boolean*/
-)
-/*: LayoutItem*/
-{
+function compactItem(compareWith, l, verticalCompact) {
   if (verticalCompact) {
     // Move the element up as far as it can go without colliding.
     while (l.y > 0 && !getFirstCollision(compareWith, l)) {
@@ -3751,13 +3645,7 @@ function compactItem(compareWith
  * @param  {Number} bounds Number of columns.
  */
 
-function correctBounds(layout
-/*: Layout*/
-, bounds
-/*: {cols: number}*/
-)
-/*: Layout*/
-{
+function correctBounds(layout, bounds) {
   var collidesWith = getStatics(layout);
 
   for (var i = 0, len = layout.length; i < len; i++) {
@@ -3789,13 +3677,7 @@ function correctBounds(layout
  * @return {LayoutItem}    Item at ID.
  */
 
-function getLayoutItem(layout
-/*: Layout*/
-, id
-/*: string*/
-)
-/*: ?LayoutItem*/
-{
+function getLayoutItem(layout, id) {
   for (var i = 0, len = layout.length; i < len; i++) {
     if (layout[i].i === id) return layout[i];
   }
@@ -3809,24 +3691,12 @@ function getLayoutItem(layout
  * @return {Object|undefined}  A colliding layout item, or undefined.
  */
 
-function getFirstCollision(layout
-/*: Layout*/
-, layoutItem
-/*: LayoutItem*/
-)
-/*: ?LayoutItem*/
-{
+function getFirstCollision(layout, layoutItem) {
   for (var i = 0, len = layout.length; i < len; i++) {
     if (collides(layout[i], layoutItem)) return layout[i];
   }
 }
-function getAllCollisions(layout
-/*: Layout*/
-, layoutItem
-/*: LayoutItem*/
-)
-/*: Array<LayoutItem>*/
-{
+function getAllCollisions(layout, layoutItem) {
   return layout.filter(function (l) {
     return collides(l, layoutItem);
   });
@@ -3837,11 +3707,7 @@ function getAllCollisions(layout
  * @return {Array}        Array of static layout items..
  */
 
-function getStatics(layout
-/*: Layout*/
-)
-/*: Array<LayoutItem>*/
-{
+function getStatics(layout) {
   //return [];
   return layout.filter(function (l) {
     return l.static;
@@ -3858,21 +3724,7 @@ function getStatics(layout
  *                                     being dragged/resized by th euser.
  */
 
-function moveElement(layout
-/*: Layout*/
-, l
-/*: LayoutItem*/
-, x
-/*: Number*/
-, y
-/*: Number*/
-, isUserAction
-/*: Boolean*/
-, preventCollision
-/*: Boolean*/
-)
-/*: Layout*/
-{
+function moveElement(layout, l, x, y, isUserAction, preventCollision) {
   if (l.static) return layout; // Short-circuit if nothing to do.
   //if (l.y === y && l.x === x) return layout;
 
@@ -3927,17 +3779,7 @@ function moveElement(layout
  *                                   by the user.
  */
 
-function moveElementAwayFromCollision(layout
-/*: Layout*/
-, collidesWith
-/*: LayoutItem*/
-, itemToMove
-/*: LayoutItem*/
-, isUserAction
-/*: ?boolean*/
-)
-/*: Layout*/
-{
+function moveElementAwayFromCollision(layout, collidesWith, itemToMove, isUserAction) {
   var preventCollision = false; // we're already colliding
   // If there is enough space above the collision to put this element, move it there.
   // We only do this on the main collision as this can get funky in cascades and cause
@@ -3945,9 +3787,7 @@ function moveElementAwayFromCollision(layout
 
   if (isUserAction) {
     // Make a mock item so we don't modify the item here, only modify in moveElement.
-    var fakeItem
-    /*: LayoutItem*/
-    = {
+    var fakeItem = {
       x: itemToMove.x,
       y: itemToMove.y,
       w: itemToMove.w,
@@ -3972,16 +3812,10 @@ function moveElementAwayFromCollision(layout
  * @return {String}     That number as a percentage.
  */
 
-function perc(num
-/*: number*/
-)
-/*: string*/
-{
+function perc(num) {
   return num * 100 + '%';
 }
-function setTransform(top, left, width, height)
-/*: Object*/
-{
+function setTransform(top, left, width, height) {
   // Replace unitless items with px
   var translate = "translate3d(" + left + "px," + top + "px, 0)";
   return {
@@ -4005,9 +3839,7 @@ function setTransform(top, left, width, height)
  * @returns {{transform: string, WebkitTransform: string, MozTransform: string, msTransform: string, OTransform: string, width: string, height: string, position: string}}
  */
 
-function setTransformRtl(top, right, width, height)
-/*: Object*/
-{
+function setTransformRtl(top, right, width, height) {
   // Replace unitless items with px
   var translate = "translate3d(" + right * -1 + "px," + top + "px, 0)";
   return {
@@ -4021,9 +3853,7 @@ function setTransformRtl(top, right, width, height)
     position: 'absolute'
   };
 }
-function setTopLeft(top, left, width, height)
-/*: Object*/
-{
+function setTopLeft(top, left, width, height) {
   return {
     top: top + "px",
     left: left + "px",
@@ -4042,9 +3872,7 @@ function setTopLeft(top, left, width, height)
  * @returns {{top: string, right: string, width: string, height: string, position: string}}
  */
 
-function setTopRight(top, right, width, height)
-/*: Object*/
-{
+function setTopRight(top, right, width, height) {
   return {
     top: top + "px",
     right: right + "px",
@@ -4060,11 +3888,7 @@ function setTopRight(top, right, width, height)
  * @return {Array}        Layout, sorted static items first.
  */
 
-function sortLayoutItemsByRowCol(layout
-/*: Layout*/
-)
-/*: Layout*/
-{
+function sortLayoutItemsByRowCol(layout) {
   return [].concat(layout).sort(function (a, b) {
     if (a.y === b.y && a.x === b.x) {
       return 0;
@@ -4146,13 +3970,7 @@ export function synchronizeLayoutWithChildren(initialLayout: Layout, children: A
  * @throw  {Error}                Validation error.
  */
 
-function validateLayout(layout
-/*: Layout*/
-, contextName
-/*: string*/
-)
-/*: void*/
-{
+function validateLayout(layout, contextName) {
   contextName = contextName || "Layout";
   var subProps = ['x', 'y', 'w', 'h'];
   var keyArr = [];
@@ -4187,13 +4005,7 @@ function validateLayout(layout
   }
 } // Flow can't really figure this out, so we just use Object
 
-function autoBindHandlers(el
-/*: Object*/
-, fns
-/*: Array<string>*/
-)
-/*: void*/
-{
+function autoBindHandlers(el, fns) {
   fns.forEach(function (key) {
     return el[key] = el[key].bind(el);
   });
@@ -4659,12 +4471,12 @@ __webpack_require__.d(all_namespaceObject, "edgeTarget", function() { return edg
 __webpack_require__.d(all_namespaceObject, "elements", function() { return snappers_elements; });
 __webpack_require__.d(all_namespaceObject, "grid", function() { return grid; });
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"f898db28-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/GridItem.vue?vue&type=template&id=5759e748&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1504b9e0-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/GridItem.vue?vue&type=template&id=45d4512c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"item",staticClass:"vue-grid-item",class:_vm.classObj,style:(_vm.style)},[_vm._t("default"),(_vm.resizableAndNotStatic)?_c('span',{ref:"handle",class:_vm.resizableHandleClass}):_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/GridItem.vue?vue&type=template&id=5759e748&
+// CONCATENATED MODULE: ./src/components/GridItem.vue?vue&type=template&id=45d4512c&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es7.object.get-own-property-descriptors.js
 var es7_object_get_own_property_descriptors = __webpack_require__("8e6e");
