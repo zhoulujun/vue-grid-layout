@@ -191,7 +191,6 @@
                 document.getElementById("content").style.width = width+"px";
             },
             removeItem: function(i) {
-                console.log("### REMOVE " + i);
                 const index = this.layout.map(item => item.i).indexOf(i);
                 this.layout.splice(index, 1);
             },
