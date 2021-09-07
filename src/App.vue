@@ -48,6 +48,9 @@
                     :vertical-compact="compact"
                     :use-css-transforms="true"
                     :responsive="responsive"
+                    :draggableOptions="{autoScroll: {
+                 container: '.content',
+                }}"
                     @layout-created="layoutCreatedEvent"
                     @layout-before-mount="layoutBeforeMountEvent"
                     @layout-mounted="layoutMountedEvent"

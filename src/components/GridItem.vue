@@ -634,7 +634,9 @@
                         } else {
                             newPosition.left = this.dragging.left + coreEvent.deltaX;
                         }
+                        newPosition.left = Math.min(newPosition.left, this.containerWidth - this.$el.clientWidth)
                         newPosition.top = this.dragging.top + coreEvent.deltaY;
+                        // newPosition.top = Math.min(newPosition.top, this.containerHeight)
 //                        console.log("### drag => " + event.type + ", x=" + x + ", y=" + y);
 //                        console.log("### drag => " + event.type + ", deltaX=" + coreEvent.deltaX + ", deltaY=" + coreEvent.deltaY);
 //                        console.log("### drag end => " + JSON.stringify(newPosition));
