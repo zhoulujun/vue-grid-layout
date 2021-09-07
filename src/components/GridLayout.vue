@@ -111,6 +111,25 @@
             useStyleCursor: {
                 type: Boolean,
                 default: true
+            },
+            resizableOptions: {
+                type: Object,
+                default: () => ({
+                        autoScroll: {
+                        container: document.body,
+                        margin: 50,
+                        distance: 5,
+                        interval: 10,
+                        speed: 300,
+                    }
+                })
+            },
+            draggableOptions: {
+                type: Object,
+                default: () => ({
+                autoScroll: {
+                 container: document.body,
+                }})
             }
         },
         data: function () {

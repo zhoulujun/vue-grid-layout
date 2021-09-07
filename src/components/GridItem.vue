@@ -202,25 +202,6 @@
                 type: Boolean,
                 required: false,
                 default: false,
-            },
-            resizableOptions: {
-                type: Object,
-                default: () => ({
-                    autoScroll: {
-                    container: '.content',
-                    margin: 50,
-                    distance: 5,
-                    interval: 10,
-                    speed: 300,
-                    }
-                })
-            },
-            draggableOptions: {
-                type: Object,
-                default: () => ({
-                autoScroll: {
-                 container: '.content',
-                }})
             }
         },
         inject: ["eventBus", "layout"],
@@ -790,7 +771,7 @@
                     const opts = {
                         ignoreFrom: this.dragIgnoreFrom,
                         allowFrom: this.dragAllowFrom,
-                        ...this.draggableOptions
+                        ...this.layout.draggableOptions
                     };
                     this.interactObj.draggable(opts);
                     /*this.interactObj.draggable({allowFrom: '.vue-draggable-handle'});*/
@@ -840,7 +821,7 @@
                                 width: maximum.width
                             }
                         },
-                        ...this.resizableOptions
+                        ...this.layout.resizableOptions
                     };
 
                     if (this.preserveAspectRatio) {
