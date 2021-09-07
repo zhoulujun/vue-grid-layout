@@ -205,11 +205,22 @@
             },
             resizableOptions: {
                 type: Object,
-                default: () => ({autoScroll: true})
+                default: () => ({
+                    autoScroll: {
+                    container: '.content',
+                    margin: 50,
+                    distance: 5,
+                    interval: 10,
+                    speed: 300,
+                    }
+                })
             },
             draggableOptions: {
                 type: Object,
-                default: () => ({})
+                default: () => ({
+                autoScroll: {
+                 container: '.content',
+                }})
             }
         },
         inject: ["eventBus", "layout"],

@@ -1,6 +1,6 @@
 {
   "name": "vue-grid-layout",
-  "version": "2.3.13-beta",
+  "version": "2.3.13-beta.2",
   "description": "A draggable and resizable grid layout, as a Vue component.",
   "keywords": [
     "grid",

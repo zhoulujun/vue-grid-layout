@@ -20,7 +20,7 @@
                 </div>
             </div>-->
         </div>
-        <div id="content">
+        <div class="content">
             <button @click="decreaseWidth">Decrease Width</button>
             <button @click="increaseWidth">Increase Width</button>
             <button @click="addItem">Add an item</button>
@@ -305,5 +305,9 @@
   /*text-align: center;*/
   color: #2c3e50;
   /*margin-top: 60px;*/
+}
+.content {
+    max-height: 400px;
+    overflow: auto;
 }
 </style>
