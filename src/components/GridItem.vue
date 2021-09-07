@@ -97,6 +97,7 @@
     import '@interactjs/actions/resize'
     import '@interactjs/modifiers'
     import '@interactjs/dev-tools'
+    import '@interactjs/auto-scroll'
     import interact from '@interactjs/interact'
 
     export default {
@@ -769,7 +770,8 @@
                 if (this.draggable && !this.static) {
                     const opts = {
                         ignoreFrom: this.dragIgnoreFrom,
-                        allowFrom: this.dragAllowFrom
+                        allowFrom: this.dragAllowFrom,
+                        autoScroll: true
                     };
                     this.interactObj.draggable(opts);
                     /*this.interactObj.draggable({allowFrom: '.vue-draggable-handle'});*/
@@ -801,7 +803,7 @@
                     // console.log("### MIN " + JSON.stringify(minimum));
 
                     const opts = {
-                        // allowFrom: "." + this.resizableHandleClass.trim().replace(" ", "."),
+                        allowFrom: "." + this.resizableHandleClass.trim().replace(" ", "."),
                         edges: {
                             left: false,
                             right: "." + this.resizableHandleClass.trim().replace(" ", "."),
