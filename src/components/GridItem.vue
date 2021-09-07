@@ -202,6 +202,14 @@
                 type: Boolean,
                 required: false,
                 default: false,
+            },
+            resizableOptions: {
+                type: Object,
+                default: () => ({autoScroll: true})
+            },
+            draggableOptions: {
+                type: Object,
+                default: () => ({})
             }
         },
         inject: ["eventBus", "layout"],
@@ -771,7 +779,7 @@
                     const opts = {
                         ignoreFrom: this.dragIgnoreFrom,
                         allowFrom: this.dragAllowFrom,
-                        autoScroll: true
+                        ...this.draggableOptions
                     };
                     this.interactObj.draggable(opts);
                     /*this.interactObj.draggable({allowFrom: '.vue-draggable-handle'});*/
@@ -803,7 +811,7 @@
                     // console.log("### MIN " + JSON.stringify(minimum));
 
                     const opts = {
-                        allowFrom: "." + this.resizableHandleClass.trim().replace(" ", "."),
+                        // allowFrom: "." + this.resizableHandleClass.trim().replace(" ", "."),
                         edges: {
                             left: false,
                             right: "." + this.resizableHandleClass.trim().replace(" ", "."),
@@ -820,7 +828,8 @@
                                 height: maximum.height,
                                 width: maximum.width
                             }
-                        }
+                        },
+                        ...this.resizableOptions
                     };
 
                     if (this.preserveAspectRatio) {
