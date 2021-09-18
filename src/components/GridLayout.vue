@@ -279,34 +279,8 @@
         },
         methods: {
             layoutUpdate() {
-                if (this.layout !== undefined && this.originalLayout !== null) {
-                    if (this.layout.length !== this.originalLayout.length) {
-                        // console.log("### LAYOUT UPDATE!", this.layout.length, this.originalLayout.length);
-
-                        let diff = this.findDifference(this.layout, this.originalLayout);
-                        if (diff.length > 0){
-                            // console.log(diff);
-                            if (this.layout.length > this.originalLayout.length) {
-                                this.originalLayout = this.originalLayout.concat(diff);
-                            } else {
-                                this.originalLayout = this.originalLayout.filter(obj => {
-                                    return !diff.some(obj2 => {
-                                        return obj.i === obj2.i;
-                                    });
-                                });
-                            }
-                        }
-
-                        this.lastLayoutLength = this.layout.length;
-                        this.initResponsiveFeatures();
-                    }
-
-                    compact(this.layout, this.verticalCompact);
-                    this.eventBus.$emit("updateWidth", this.width);
-                    this.updateHeight();
-
-                    this.$emit('layout-updated',this.layout)
-                }
+                this.originalLayout = this.layout;
+                this.$nextTick(this.updateHeight);
             },
             updateHeight: function () {
                 this.mergedStyle = {
