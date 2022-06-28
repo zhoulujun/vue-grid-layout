@@ -1,7 +1,11 @@
 {
-  "name": "vue-grid-layout",
-  "version": "2.3.13-beta.7",
-  "description": "A draggable and resizable grid layout, as a Vue component.",
+  "name": "bk-vision-vue-grid-layout",
+  "version": "1.01",
+  "description": "源自jbaysolutions/vue-grid-layout，A draggable and resizable grid layout, as a Vue component.",
+  "engines": {
+    "node": "^v14.19.0",
+    "npm": "^6.14.16"
+  },
   "keywords": [
     "grid",
     "vuejs",
@@ -14,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jbaysolutions/vue-grid-layout.git"
+    "url": "https://github.com/zhoulujun/vue-grid-layoutvue-grid-layout.git"
   },
   "author": "Gustavo Santos (JBay Solutions) <gustavo.santos@jbaysolutions.com> (http://www.jbaysolutions.com)",
-  "homepage": "https://github.com/jbaysolutions/vue-grid-layout",
+  "homepage": "https://github.com/zhoulujun/vue-grid-layout",
   "main": "dist/vue-grid-layout.common.js",
   "unpkg": "dist/vue-grid-layout.umd.min.js",
   "scripts": {
